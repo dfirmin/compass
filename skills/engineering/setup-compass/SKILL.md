@@ -1,7 +1,13 @@
 ---
+type: Skill
 name: setup-compass
 description: "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
 disable-model-invocation: true
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 # Setup Compass

@@ -1,7 +1,13 @@
 ---
+type: Skill
 name: to-tickets
 description: Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).
 disable-model-invocation: true
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 # To Tickets

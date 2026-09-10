@@ -1,0 +1,18 @@
+---
+okf_version: "0.2"
+---
+
+# Compass
+
+
+# Documents
+
+* [Compass maintainer instructions](CLAUDE.md) - Repo conventions every agent editing Compass must follow.
+* [Compass glossary](CONTEXT.md) - Shared vocabulary for the skills and their renamed terms.
+* [Compass README](README.md) - Agent skills for ETL, AWS, and app work; install and orientation.
+
+# Subdirectories
+
+* [.agents](.agents/)
+* [docs](docs/)
+* [skills](skills/)

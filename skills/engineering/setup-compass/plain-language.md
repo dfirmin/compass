@@ -1,3 +1,12 @@
+---
+type: Template
+title: "Plain-language questions"
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 # Plain-language questions
 
 Whenever you ask the user a question that requires a decision (in `/probing`, `/triage`, `/scout`, `/to-questionnaire`, `/improve-codebase-architecture`, or any ad-hoc clarifying question), pair the technical question with a plain-language restatement a non-technical stakeholder could answer on their own.

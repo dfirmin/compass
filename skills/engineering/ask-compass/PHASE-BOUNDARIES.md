@@ -1,3 +1,12 @@
+---
+type: Reference
+title: "Phase boundaries"
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 # Phase boundaries
 
 A **phase** is a chunk of work inside a session: the probing, the implementation, the QA. The definition is fuzzy on purpose: a phase ends when you think *"ok, we're done with that"*.

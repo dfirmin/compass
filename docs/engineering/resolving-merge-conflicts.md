@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "resolving-merge-conflicts (docs)"
+description: "Use when you need to resolve an in-progress git merge/rebase conflict."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `resolving-merge-conflicts` works through an in-progress git merge or rebase, hunk by hunk, then runs the project's own checks and finishes the operation with a commit.

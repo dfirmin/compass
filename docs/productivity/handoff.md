@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "handoff (docs)"
+description: "Compact the current conversation into a handoff document for another agent to pick up."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `handoff` compacts the conversation you are in into a **handoff document**: one markdown file, written to your OS's temporary directory rather than into the workspace, that a fresh [agent](https://www.aihero.dev/ai-coding-dictionary/agent) can read to pick the work up.

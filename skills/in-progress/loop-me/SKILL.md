@@ -1,8 +1,14 @@
 ---
+type: Skill
 name: loop-me
 description: Probe me about specs for the workflows I want to build, within this workspace.
 disable-model-invocation: true
 argument-hint: "A workflow to design, or nothing to go find one"
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 Run a stateful `/probing` session whose only output is **workflow** specs. Use the probing discipline (relentless, a round of questions at a time, a recommended answer attached to each) aimed at the vocabulary and goal below. Create, edit, and delete specs as the probing resolves things.

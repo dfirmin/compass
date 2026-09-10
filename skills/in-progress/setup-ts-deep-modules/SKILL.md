@@ -1,7 +1,13 @@
 ---
+type: Skill
 name: setup-ts-deep-modules
 description: Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked.
 disable-model-invocation: true
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 # Setup TS Deep Modules

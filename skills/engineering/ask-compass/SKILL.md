@@ -1,7 +1,13 @@
 ---
+type: Skill
 name: ask-compass
 description: Ask which skill or flow fits your situation. A router over the skills in this repo.
 disable-model-invocation: true
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 # Ask Compass

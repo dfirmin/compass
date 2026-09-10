@@ -1,6 +1,12 @@
 ---
+type: Skill
 name: probing
 description: Probe the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'probe' trigger phrases.
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.

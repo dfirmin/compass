@@ -1,3 +1,12 @@
+---
+type: Reference
+title: "In Progress"
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 # In Progress
 
 Beta. Try them and report what breaks. They're excluded from the top-level README until they graduate to a stable bucket, they get no docs pages, and they can change or disappear without warning.

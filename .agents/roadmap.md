@@ -1,3 +1,9 @@
+---
+type: Reference
+title: "Roadmap"
+description: "Planned order of work: port (done), diagrams, company-skill integration."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+---
 # Roadmap
 
 Planned order, agreed before the port. Step 1 is done; 2 and 3 are open.

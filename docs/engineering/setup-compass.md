@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "setup-compass (docs)"
+description: "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `setup-compass` answers three questions about one repo: where issues live, what the triage labels are called, and where the domain docs sit. It records the answers as markdown files under `docs/agents/`, and alongside them writes one standing rule that never varies: every decision question the agent asks in this repo carries an **In plain terms** restatement for non-technical stakeholders.

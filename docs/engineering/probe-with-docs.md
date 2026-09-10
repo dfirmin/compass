@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "probe-with-docs (docs)"
+description: "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `probe-with-docs` interviews you about a plan or design until you and the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) share one understanding of it, and writes the vocabulary and the hard decisions into your repo while it does. It is the same interview [probe-me](../../skills/productivity/probe-me/SKILL.md) runs (a round of questions, then wait, then the next round), pointed at a codebase.

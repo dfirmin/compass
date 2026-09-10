@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "scout (docs)"
+description: "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `scout` takes an effort too big for one agent [session](https://www.aihero.dev/ai-coding-dictionary/session): an idea whose **destination** you can name but whose route you cannot yet see, and charts it as a shared **map** of **decision tickets** on your issue tracker, then resolves them one at a time until the way is clear.

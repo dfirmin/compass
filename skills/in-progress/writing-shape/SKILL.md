@@ -1,7 +1,13 @@
 ---
+type: Skill
 name: writing-shape
 description: "Writing, exploit: shape raw material into an article, paragraph by paragraph."
 disable-model-invocation: true
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
 ---
 
 <what-to-do>

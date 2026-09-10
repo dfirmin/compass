@@ -1,3 +1,12 @@
+---
+type: Reference
+title: "Good and Bad Tests"
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 # Good and Bad Tests
 
 ## Good Tests

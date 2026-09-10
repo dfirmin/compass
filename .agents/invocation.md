@@ -1,3 +1,13 @@
+---
+type: Reference
+title: "Skill invocation modes"
+description: "User-invoked vs model-invoked skills and their frontmatter."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 # Model-invoked vs user-invoked
 
 Every `SKILL.md` in this repo is a skill. The one axis that splits them is **invocation**, who can reach it:

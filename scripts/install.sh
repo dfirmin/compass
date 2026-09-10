@@ -4,28 +4,25 @@ set -euo pipefail
 # Compass installer. No plugin marketplace, no npx: this script is the
 # supported install path.
 #
-# It puts every promoted skill (engineering/, productivity/, plus in-progress/)
-# into the skill directories the agent harnesses read:
+# Default is a per-project install into the repo you run it from:
 #
-#   ~/.claude/skills   Claude Code
-#   ~/.agents/skills   Codex, Cursor, and other Agent Skills harnesses
-#                      (Cursor also reads ~/.claude/skills, so both are covered)
+#   ./.agents/skills   copied   (Codex, Cursor; committed with the repo so
+#                               teammates and CI get the same skills)
+#   ./.claude/skills   symlink -> ./.agents/skills (Claude Code; one copy on disk)
 #
 # Usage:
-#   scripts/install.sh              symlink into the user-level dirs (default)
-#   scripts/install.sh --copy       copy instead of symlink (Windows, locked-down
-#                                   machines, or when you want a frozen snapshot)
-#   scripts/install.sh --project    install into ./.claude/skills and
-#                                   ./.agents/skills of the current working
-#                                   directory instead of the home dirs
+#   scripts/install.sh              per-project, from the current directory (default)
+#   scripts/install.sh --user       into ~/.claude/skills and ~/.agents/skills
+#                                   instead (symlinks into this checkout)
+#   scripts/install.sh --copy       force copies everywhere
+#   scripts/install.sh --link       force symlinks everywhere
 #   scripts/install.sh --uninstall  remove whatever a previous run installed
 #
-# Symlinks track this checkout: `git pull` updates every installed skill.
-# Copies don't: re-run with --copy to refresh.
+# Re-run after `git pull` in the Compass checkout to refresh a project install.
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-MODE="link"
-SCOPE="user"
+MODE=""
+SCOPE="project"
 ACTION="install"
 
 for arg in "$@"; do
@@ -42,8 +39,10 @@ done
 
 if [ "$SCOPE" = "user" ]; then
   DESTS=("$HOME/.claude/skills" "$HOME/.agents/skills")
+  [ -z "$MODE" ] && MODE="link"
 else
-  DESTS=("$PWD/.claude/skills" "$PWD/.agents/skills")
+  DESTS=("$PWD/.agents/skills")
+  [ -z "$MODE" ] && MODE="copy"
 fi
 
 # deprecated/ is retired and misc/ is unpromoted; neither is installed.
@@ -96,6 +95,21 @@ for DEST in "${DESTS[@]}"; do
     fi
   done
 done
+
+# Project scope: Claude Code reads .claude/skills; point it at the same files.
+if [ "$SCOPE" = "project" ]; then
+  mkdir -p "$PWD/.claude"
+  if [ "$ACTION" = "uninstall" ]; then
+    [ -L "$PWD/.claude/skills" ] && rm "$PWD/.claude/skills" && echo "removed $PWD/.claude/skills"
+  else
+    if [ -e "$PWD/.claude/skills" ] && [ ! -L "$PWD/.claude/skills" ]; then
+      echo "note: $PWD/.claude/skills exists as a real directory; leaving it alone. Symlink it to .agents/skills yourself if you want one copy." >&2
+    else
+      ln -sfn "../.agents/skills" "$PWD/.claude/skills"
+      echo "linked .claude/skills -> ../.agents/skills"
+    fi
+  fi
+fi
 
 if [ "$ACTION" = "install" ]; then
   echo

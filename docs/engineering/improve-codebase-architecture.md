@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "improve-codebase-architecture (docs)"
+description: "Scan a codebase for deepening opportunities, present them as a visual HTML report, then probe through whichever one you pick."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `improve-codebase-architecture` surveys a codebase for **deepening opportunities**: places where a shallow module (an interface nearly as complex as the thing it hides) could become a deep one. It writes them up as a self-contained HTML report, and then [probes](https://www.aihero.dev/ai-coding-dictionary/probing) you through whichever one you pick.

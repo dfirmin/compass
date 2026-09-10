@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "implement (docs)"
+description: "Implement a piece of work based on a spec or set of tickets."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `implement` builds work that has already been decided. You point it at a [ticket](https://www.aihero.dev/ai-coding-dictionary/ticket), a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), or the plan you just agreed in the conversation, and it writes the code, drives [tdd](../../skills/engineering/tdd/SKILL.md) at the seams, typechecks as it goes, runs [code-review](../../skills/engineering/code-review/SKILL.md) at the end, and commits to the current branch.

@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "to-questionnaire (docs)"
+description: "Turn a decision you can't fully answer into a questionnaire for someone else to fill in."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `to-questionnaire` turns a decision you can't settle on your own into a **questionnaire**: a Markdown document you hand to the one person who holds what you're missing, for them to fill in async or for the two of you to work through in a meeting.

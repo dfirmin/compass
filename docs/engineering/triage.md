@@ -1,3 +1,13 @@
+---
+type: Skill Doc
+title: "triage (docs)"
+description: "Move issues and external PRs through a state machine of triage roles, categorise, verify, probe if needed, and write agent-ready briefs."
+generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
+sources:
+  - id: upstream
+    resource: https://github.com/mattpocock/skills
+    title: mattpocock/skills v1.2.3
+---
 ## What it does
 
 `triage` works through the issues on your project's tracker, moving each one through a small state machine of **triage roles** (a category role and a state role) and leaving behind either an agent-ready brief, a specific question for the reporter, or a closed issue with a recorded reason.
