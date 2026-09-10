@@ -10,7 +10,7 @@ okf_version: "0.2"
 * [Compass maintainer instructions](CLAUDE.md) - Repo conventions every agent editing Compass must follow.
 * [Compass glossary](CONTEXT.md) - Shared vocabulary for the skills and their renamed terms.
 * [Notice](NOTICE.md) - Attribution for the upstream skills repository Compass was adapted from.
-* [Compass README](README.md) - Agent skills for ETL, AWS, and app work; install and orientation.
+* [Compass README](README.md) - Agent skills for Claude Code, Codex, and Cursor; install and orientation.
 
 # Subdirectories
 

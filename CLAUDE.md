@@ -6,7 +6,7 @@ generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
 ---
 # Compass
 
-Compass is our agent-skills repo, adapted from the upstream skills repository (see [NOTICE.md](NOTICE.md)) (MIT). It keeps that repo's shape and discipline and extends it toward our work: ETL generation across warehouses, AWS infrastructure, and the front-end/TypeScript apps we still own. See `CONTEXT.md` for the vocabulary.
+Compass is our agent-skills repo, adapted from the upstream skills repository (see [NOTICE.md](NOTICE.md)) (MIT). It keeps that repo's shape and discipline. The skills stay platform-agnostic; what is specific to a repo (warehouse, cloud, app stack, standards) lives in that repo's `docs/agents/` config, never in a skill. See `CONTEXT.md` for the vocabulary.
 
 Skills are organized into bucket folders under `skills/`:
 
