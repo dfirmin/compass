@@ -6,7 +6,7 @@ generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
 ---
 # Compass
 
-Agent skills for real engineering work on our data platform and the apps around it. Compass is adapted from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, see `LICENSE`): same small, composable, model-agnostic skills, extended toward ETL generation across warehouses (Teradata, Databricks, Snowflake, Oracle), AWS infrastructure, and the front-end/TypeScript codebases we still own.
+Agent skills for real engineering work on our data platform and the apps around it. Compass is adapted from the upstream skills repository (see [NOTICE.md](NOTICE.md)) (MIT, see `LICENSE`): same small, composable, model-agnostic skills, extended toward ETL generation across warehouses (Teradata, Databricks, Snowflake, Oracle), AWS infrastructure, and the front-end/TypeScript codebases we still own.
 
 Two things Compass adds on top of the upstream shape:
 

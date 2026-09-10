@@ -21,7 +21,7 @@ ROOT = os.path.abspath(ARGS[0]) if ARGS else os.path.dirname(os.path.dirname(os.
 RESERVED = {"index.md", "log.md"}
 SKIP_DIRS = {".git", "node_modules"}
 PRODUCER = "compass-port/0.1.0"
-UPSTREAM = "https://github.com/mattpocock/skills"
+UPSTREAM = "/NOTICE.md"
 
 def walk():
     for d, dirs, files in os.walk(ROOT):
@@ -86,14 +86,14 @@ def stamp():
             if not fm_get(fm, "generated"):
                 new_fm += f"\ngenerated: {{ by: {PRODUCER}, at: {now} }}"
             if is_upstream_derived(p) and not fm_get(fm, "sources"):
-                new_fm += f"\nsources:\n  - id: upstream\n    resource: {UPSTREAM}\n    title: mattpocock/skills v1.2.3"
+                new_fm += f"\nsources:\n  - id: upstream\n    resource: {UPSTREAM}\n    title: the upstream skills repository v1.2.3"
             open(p, "w", encoding="utf-8").write(f"---\n{new_fm}\n---\n{body}")
         else:
             title = title_for(p).replace('"', "'")
             lines = [f"type: {t}", f'title: "{title}"',
                      f"generated: {{ by: {PRODUCER}, at: {now} }}"]
             if is_upstream_derived(p):
-                lines += ["sources:", "  - id: upstream", f"    resource: {UPSTREAM}", "    title: mattpocock/skills v1.2.3"]
+                lines += ["sources:", "  - id: upstream", f"    resource: {UPSTREAM}", "    title: Upstream skills repository (see NOTICE.md)"]
             open(p, "w", encoding="utf-8").write("---\n" + "\n".join(lines) + "\n---\n" + body)
         n += 1
     print(f"stamped {n} file(s)")

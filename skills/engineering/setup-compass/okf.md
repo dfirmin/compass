@@ -4,8 +4,8 @@ title: "OKF frontmatter for documents Compass writes"
 generated: { by: compass-port/0.1.0, at: 2026-09-10T20:01:51Z }
 sources:
   - id: upstream
-    resource: https://github.com/mattpocock/skills
-    title: mattpocock/skills v1.2.3
+    resource: /NOTICE.md
+    title: Upstream skills repository (see NOTICE.md)
 ---
 <!-- Target-repo frontmatter: keep the block below (fill `at`) when writing this file into docs/agents/ -->
 ```yaml

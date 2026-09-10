@@ -5,8 +5,8 @@ description: "Move issues and external PRs through a state machine of triage rol
 generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
 sources:
   - id: upstream
-    resource: https://github.com/mattpocock/skills
-    title: mattpocock/skills v1.2.3
+    resource: /NOTICE.md
+    title: Upstream skills repository (see NOTICE.md)
 ---
 ## What it does
 
@@ -70,7 +70,7 @@ All of it exists to make one artifact good: the **agent brief**, the structured 
 
 Where the tracker treats external pull requests as a request surface, they run through the same machine, with the same categories, same states, same transitions. The states just read against the diff: `ready-for-agent` means a brief is attached and an agent should take the next step on the code, `ready-for-human` means it's ready for a person to merge. A brief on a PR describes what's left to do to the existing diff, not how to build the thing from nothing.
 
-Discovery surfaces only *external* PRs, because a collaborator's in-flight branch is not triage work. That filter is discovery-only, and naming a PR explicitly gets it triaged whoever wrote it. One rough edge: the GitHub template's external-PR listing command asks `gh pr list` for an `authorAssociation` field that `gh` does not expose, so the command as written fails outright ([#468](https://github.com/mattpocock/skills/issues/468)).
+Discovery surfaces only *external* PRs, because a collaborator's in-flight branch is not triage work. That filter is discovery-only, and naming a PR explicitly gets it triaged whoever wrote it. One rough edge: the GitHub template's external-PR listing command asks `gh pr list` for an `authorAssociation` field that `gh` does not expose, so the command as written fails outright (#468).
 
 ## Common questions
 
@@ -81,10 +81,10 @@ No. They are already agent-ready, because `to-tickets` applies the `ready-for-ag
 Only if you have inbound work. `triage` predates that spine and does a different job: it is the lane for reports other people filed. If everything in your tracker came out of your own planning, you will rarely open it. If you maintain anything public, or your team files bugs at you, it is the front door. The main use is open-source repos taking issues from external contributors.
 
 **The agent tried to apply `ready-for-agent` and `gh` said the label doesn't exist.**
-Known open bug ([#616](https://github.com/mattpocock/skills/issues/616)). `setup-compass` writes the label vocabulary into `docs/agents/triage-labels.md`, but does not create the labels in your tracker. Create the five state labels and two category labels yourself, once, with `gh label create` or the tracker's UI, and it stops. There is a community fix branch linked from the issue that hasn't been merged.
+Known open bug (#616). `setup-compass` writes the label vocabulary into `docs/agents/triage-labels.md`, but does not create the labels in your tracker. Create the five state labels and two category labels yourself, once, with `gh label create` or the tracker's UI, and it stops. There is a community fix branch linked from the issue that hasn't been merged.
 
 **Five states aren't enough: what about blocked, or deferred, or implemented?**
-This is the most-filed gap on the skill, in three shapes. An issue that is fully specified but waiting on another issue to close ([#139](https://github.com/mattpocock/skills/issues/139)), where the reporter's complaint was that `ready-for-agent` is "technically true" there but misleading, so an agent picks it up and hits a wall. Trigger-gated future work that is intended but not actionable yet ([#297](https://github.com/mattpocock/skills/issues/297)). And a terminal state for "implemented, awaiting verification", without which an AFK runner can re-queue finished tickets. Upstream has agreed the blocked case is real and is undecided on the name (`blocked` versus `paused`). None of it has shipped. The workaround people use is a repo-local extra label alongside the category, which keeps the canonical state slot occupied by something honest at the cost of the skill not knowing about it. One community derivative goes further, adding `needs-slicing`, `tracking` and effort labels. That works, but it is theirs, not the skill's.
+This is the most-filed gap on the skill, in three shapes. An issue that is fully specified but waiting on another issue to close (#139), where the reporter's complaint was that `ready-for-agent` is "technically true" there but misleading, so an agent picks it up and hits a wall. Trigger-gated future work that is intended but not actionable yet (#297). And a terminal state for "implemented, awaiting verification", without which an AFK runner can re-queue finished tickets. Upstream has agreed the blocked case is real and is undecided on the name (`blocked` versus `paused`). None of it has shipped. The workaround people use is a repo-local extra label alongside the category, which keeps the canonical state slot occupied by something honest at the cost of the skill not knowing about it. One community derivative goes further, adding `needs-slicing`, `tracking` and effort labels. That works, but it is theirs, not the skill's.
 
 **How is this different from `/diagnosing-bugs`?**
 The verification step here is deliberately shallow (enough to answer "is this real, and roughly where does it live"), not to find a root cause. When a bug won't reproduce from the reporter's steps in a few minutes, the honest move is `needs-info`, or [diagnosing-bugs](../../skills/engineering/diagnosing-bugs/SKILL.md) if you want to chase it now. Neither skill's text currently mentions the other; a user found that seam, and it is still open.
@@ -93,7 +93,7 @@ The verification step here is deliberately shallow (enough to answer "is this re
 You can ask, but watch what it reads. The "show what needs attention" pass is a cheap listing meant for *selection*, where you pick one, and then it gathers full [context](https://www.aihero.dev/ai-coding-dictionary/context) on the one you picked. Run it across twenty issues at once and an agent can quietly fall back to that cheap listing as its evidence base, which returns issue bodies but not comments. A user hit exactly this: three issues already carried a comment saying "already fixed, recommend closing", and all three got fresh agent briefs instead. If you want a bulk pass, say explicitly that comments must be read per issue.
 
 **Does it work with Linear, or anything other than GitHub Issues?**
-Yes, the tracker is config, not a hard-coded assumption, and people run it against Linear (via the `linear` CLI), GitLab, and plain markdown files under `.scratch/`. A common split is Linear for issues and planning, GitHub for code and PRs: skills that say "issue tracker" map to Linear, skills that say "PR" map to GitHub. On the local-markdown tracker there is an open template bug where the generated file can carry the acceptance criteria twice, once at the top level and once inside the agent brief ([#200](https://github.com/mattpocock/skills/issues/200)).
+Yes, the tracker is config, not a hard-coded assumption, and people run it against Linear (via the `linear` CLI), GitLab, and plain markdown files under `.scratch/`. A common split is Linear for issues and planning, GitHub for code and PRs: skills that say "issue tracker" map to Linear, skills that say "PR" map to GitHub. On the local-markdown tracker there is an open template bug where the generated file can carry the acceptance criteria twice, once at the top level and once inside the agent brief (#200).
 
 ## It's working if
 

@@ -7,8 +7,8 @@ disable-model-invocation: true
 generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
 sources:
   - id: upstream
-    resource: https://github.com/mattpocock/skills
-    title: mattpocock/skills v1.2.3
+    resource: /NOTICE.md
+    title: Upstream skills repository (see NOTICE.md)
 ---
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace. Start it with OKF frontmatter: `type: Handoff`, `title`, `description` (the one-line goal of the next session), `generated: { by: compass/handoff, at: <ISO 8601 UTC> }`, and `sources` listing the artifacts it references (specs, ADRs, issues) by path or URL.

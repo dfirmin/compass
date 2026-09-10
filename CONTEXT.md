@@ -6,7 +6,7 @@ generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
 ---
 # Compass
 
-Our collection of agent skills (slash commands and behaviors) loaded by Claude Code, Codex, and Cursor. Skills are organized into buckets and consumed by per-repo configuration emitted by `/setup-compass`. Adapted from mattpocock/skills; the renamed terms below map back to that repo where noted.
+Our collection of agent skills (slash commands and behaviors) loaded by Claude Code, Codex, and Cursor. Skills are organized into buckets and consumed by per-repo configuration emitted by `/setup-compass`. Adapted from the upstream skills repository (see NOTICE.md); the renamed terms below note the upstream term.
 
 ## Language
 
