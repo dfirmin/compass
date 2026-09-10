@@ -10,6 +10,9 @@ sources:
 ---
 ## What it does
 
+The file it writes is an OKF v0.2 `Research` concept: every consulted source sits in the `sources` frontmatter with a stable `id`, and each claim cites one with a footnote keyed to that id. `scripts/okf.py check --strict` in the Compass repo verifies the join both ways.
+
+
 `research` answers a question by reading the sources that own the answer, then leaves a cited Markdown file in the repo. It works only from **[primary sources](https://www.aihero.dev/ai-coding-dictionary/primary-source)**: official docs, source code, specs, first-party APIs. It follows every claim back to the source that owns it, so it will not repeat a blog post's account of an API when the API's own docs are reachable.
 
 It does not answer you in the conversation. The output is a file, written where the repo already keeps such notes, with a link on each claim. That is the point: a document you can react to, hand to another agent, or throw away, rather than an answer that vanishes when the [session](https://www.aihero.dev/ai-coding-dictionary/session) ends.

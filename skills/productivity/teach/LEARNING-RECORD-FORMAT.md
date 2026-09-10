@@ -16,6 +16,11 @@ They are the teaching equivalent of ADRs: they capture non-obvious lessons, key 
 ## Template
 
 ```md
+---
+type: Learning Record
+title: "{Short title of what was learned or established}"
+generated: { by: compass/teach, at: {ISO 8601 UTC} }
+---
 # {Short title of what was learned or established}
 
 {1-3 sentences: what was learned (or what prior knowledge was established), and why it matters for future sessions.}
@@ -27,7 +32,7 @@ That is the whole format. A learning record can be a single paragraph. The value
 
 Only include these when they add genuine value. Most records won't need them.
 
-- **Status** frontmatter (`active | superseded by LR-NNNN`): useful when an earlier understanding turns out to be wrong and is replaced.
+- **Superseding**: when an earlier understanding turns out to be wrong and is replaced, set OKF `status: deprecated` on the old record and add `superseded_by: <path to the new LR>`. Absent `status` means active.
 - **Evidence**: how the user demonstrated the understanding (a question answered, an exercise completed, prior experience cited). Useful when the claim might be revisited.
 - **Implications**: what this unlocks or rules out for future sessions. Worth recording when non-obvious.
 

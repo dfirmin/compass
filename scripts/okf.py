@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """OKF v0.2 tooling for the Compass bundle. Standard library only.
 
-  scripts/okf.py check    validate conformance (exit 1 on failure)
+  scripts/okf.py check [DIR] [--strict]
+                          validate conformance of this repo, or of DIR (a
+                          target repo Compass has written into); --strict
+                          also checks footnote labels resolve to sources ids,
+                          generated/verified actor syntax, and ADR status pairs
   scripts/okf.py index    (re)generate index.md files from frontmatter
   scripts/okf.py stamp    add missing frontmatter using the type map below
 
@@ -11,7 +15,9 @@ carry only okf_version); log.md uses ISO date headings.
 """
 import os, re, sys, datetime
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ARGS = [a for a in sys.argv[2:] if not a.startswith("--")]
+FLAGS = {a for a in sys.argv[2:] if a.startswith("--")}
+ROOT = os.path.abspath(ARGS[0]) if ARGS else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESERVED = {"index.md", "log.md"}
 SKIP_DIRS = {".git", "node_modules"}
 PRODUCER = "compass-port/0.1.0"
@@ -158,9 +164,40 @@ def check():
             errors.append(f"{r}: missing frontmatter"); continue
         if not fm_get(fm, "type"):
             errors.append(f"{r}: missing or empty `type`")
+        if "--strict" in FLAGS:
+            errors += strict(r, fm, body)
     if errors:
         print("\n".join(errors)); print(f"\n{len(errors)} problem(s)"); sys.exit(1)
     print("OKF v0.2 conformance: OK")
+
+ACTOR = re.compile(r"^(human:[\w.-]+|process:[\w.-]+|[\w.-]+/[\w.@-]+)$")
+ADR_MAP = {"proposed": "draft", "accepted": "stable", "deprecated": "deprecated", "superseded": "deprecated"}
+
+def strict(r, fm, body):
+    errs = []
+    for m in re.finditer(r"(?<![\w_])by:\s*([^,}\n]+)", fm):
+        if not ACTOR.match(m.group(1).strip()):
+            errs.append(f"{r}: actor not in OKF convention: {m.group(1).strip()}")
+    for m in re.finditer(r"\bat:\s*([^,}\n]+)", fm):
+        v = m.group(1).strip()
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})", v):
+            errs.append(f"{r}: timestamp not ISO 8601 with offset: {v}")
+    st = fm_get(fm, "status")
+    if st and st not in ("draft", "stable", "deprecated"):
+        errs.append(f"{r}: status must be draft|stable|deprecated, got {st}")
+    adr = fm_get(fm, "adr_status")
+    if adr:
+        if adr not in ADR_MAP: errs.append(f"{r}: unknown adr_status {adr}")
+        elif (st or "stable") != ADR_MAP[adr]: errs.append(f"{r}: adr_status {adr} requires status {ADR_MAP[adr]}")
+        if adr == "superseded" and not fm_get(fm, "superseded_by"): errs.append(f"{r}: superseded ADR needs superseded_by")
+    ids = set(re.findall(r"^\s*-\s*id:\s*(\S+)", fm, re.M))
+    prose = re.sub(r"```.*?```", "", body, flags=re.S); prose = re.sub(r"`[^`\n]*`", "", prose)
+    labels = set(re.findall(r"\[\^([^\]]+)\]", prose))
+    if "sources" in fm or labels:
+        for l in labels - ids: errs.append(f"{r}: footnote [^{l}] has no sources[].id")
+        for i in ids - labels:
+            if fm_get(fm, "type") == "Research": errs.append(f"{r}: source id {i} is never cited")
+    return errs
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "check"

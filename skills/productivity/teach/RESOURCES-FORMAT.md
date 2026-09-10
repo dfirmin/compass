@@ -14,6 +14,11 @@ sources:
 ## Structure
 
 ```md
+---
+type: Resources
+title: "{Topic} Resources"
+generated: { by: compass/teach, at: {ISO 8601 UTC} }
+---
 # {Topic} Resources
 
 ## Knowledge

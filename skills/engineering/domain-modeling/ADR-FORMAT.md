@@ -16,18 +16,27 @@ Create the `docs/adr/` directory lazily: only when the first ADR is needed.
 ## Template
 
 ```md
+---
+type: ADR
+title: "{Short title of the decision}"
+description: "{the decision in one sentence}"
+adr_status: accepted
+status: stable
+generated: { by: compass/domain-modeling, at: {ISO 8601 UTC} }
+---
 # {Short title of the decision}
 
 {1-3 sentences: what's the context, what did we decide, and why.}
 ```
 
-That's it. An ADR can be a single paragraph. The value is in recording *that* a decision was made and *why*, not in filling out sections.
+That's it. An ADR can be a single paragraph plus its frontmatter. The value is in recording *that* a decision was made and *why*, not in filling out sections.
 
 ## Optional sections
 
 Only include these when they add genuine value. Most ADRs won't need them.
 
-- **Status** frontmatter (`proposed | accepted | deprecated | superseded by ADR-NNNN`): useful when decisions are revisited
+- **Status** is always present, as two keys (see `docs/agents/okf.md`): `adr_status` (`proposed | accepted | deprecated | superseded`) and the OKF `status` it maps to (`draft | stable | deprecated`). A superseded ADR also carries `superseded_by: /docs/adr/NNNN-slug.md`. New ADRs from a probing session are `accepted`/`stable`; write `proposed`/`draft` only when the user says the decision is still open.
+- **`verified`**: add `verified: { by: human:<id>, at: ... }` once the user has read the ADR text and confirmed it in the session
 - **Considered Options**: only when the rejected alternatives are worth remembering
 - **Consequences**: only when non-obvious downstream effects need to be called out
 

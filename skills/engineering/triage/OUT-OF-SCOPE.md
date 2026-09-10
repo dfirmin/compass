@@ -30,6 +30,12 @@ One file per **concept**, not per issue. Multiple issues requesting the same thi
 The file should be written in a relaxed, readable style, more like a short design document than a database entry. Use paragraphs, code samples, and examples to make the reasoning clear and useful to someone encountering it for the first time.
 
 ```markdown
+---
+type: Out of Scope
+title: "Dark Mode"
+description: "This project does not support dark mode or user-facing theming."
+generated: { by: compass/triage, at: 2026-09-10T15:00:00Z }
+---
 # Dark Mode
 
 This project does not support dark mode or user-facing theming.

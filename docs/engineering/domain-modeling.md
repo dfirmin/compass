@@ -10,6 +10,9 @@ sources:
 ---
 ## What it does
 
+`CONTEXT.md` and every ADR it writes are OKF v0.2 concepts (`type: Glossary`, `type: ADR`). ADRs carry both `adr_status` (proposed/accepted/superseded) and the OKF `status` it maps to, plus `superseded_by` as a link; `verified` appears only after you confirm the text in the session.
+
+
 `domain-modeling` builds and sharpens a project's **ubiquitous language** while you are designing: challenging a term that conflicts with the glossary, forcing a precise word where you used a vague one, and stress-testing a relationship with a concrete scenario until the boundaries are exact.
 
 It is the **active** discipline, not the passive one. Reading `CONTEXT.md` to borrow its vocabulary is a one-line habit any skill can do; this skill is for when you are *changing* the model. That is what makes it interrupt. It writes a resolved term into `CONTEXT.md` at the moment it is resolved, in the middle of the conversation, rather than producing a tidy glossary at the end, because the batched version is a summary of a [session](https://www.aihero.dev/ai-coding-dictionary/session), and the inline version is the session's actual output.

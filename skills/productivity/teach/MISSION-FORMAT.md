@@ -14,6 +14,11 @@ sources:
 ## Template
 
 ```md
+---
+type: Mission
+title: "Mission: {Topic}"
+generated: { by: compass/teach, at: {ISO 8601 UTC} }
+---
 # Mission: {Topic}
 
 ## Why

@@ -11,6 +11,7 @@ Agent skills for real engineering work on our data platform and the apps around 
 Two things Compass adds on top of the upstream shape:
 
 - **Plain-language questions.** Every decision question a skill asks you comes with an **In plain terms** restatement a non-technical stakeholder can answer. Product owners and analysts can sit in a probing session without a translator.
+- **OKF everywhere.** Compass is an [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) v0.2 bundle, and every document the skills write into your repo (`CONTEXT.md`, ADRs, research, specs) carries OKF frontmatter with provenance (`generated`, `sources`) and trust (`verified`) fields, so a knowledge pipeline can ingest it without a migration.
 - **Repo config over per-platform skills.** There is no `etl-databricks` or `web-typescript` skill. Skills generalize; what's specific to a repo (platform, dialect, deployment target, which company standards apply) lives in `docs/agents/*.md`, written once by `/setup-compass`.
 
 Planned next: architectural diagrams as a required artifact alongside `CONTEXT.md` and ADRs, and pulling our internal API, Engineering Security, and AWS standards skills into the flows. See [.agents/roadmap.md](./.agents/roadmap.md).
@@ -32,7 +33,7 @@ Then restart your agent session and run **`/setup-compass`** once per repo. It w
 - Ask which issue tracker this repo uses (GitHub, GitLab, or local markdown; anything else described in a paragraph)
 - Ask whether to keep the default triage labels (`/triage` uses labels)
 - Detect single- vs multi-context domain docs
-- Write the plain-language question rule into the repo's `AGENTS.md` / `CLAUDE.md`
+- Write the plain-language question rule and the OKF frontmatter rule into the repo's `AGENTS.md` / `CLAUDE.md`
 
 Not sure which skill fits? Run **`/ask-compass`**.
 

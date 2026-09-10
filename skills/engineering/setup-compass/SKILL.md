@@ -18,6 +18,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Triage labels**: the strings used for the five canonical triage roles
 - **Domain docs**: where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
 - **Plain-language questions**: the standing rule that every decision question the agent asks is paired with a restatement a non-technical stakeholder could answer
+- **OKF frontmatter**: the rule that every document Compass writes is an OKF v0.2 concept, with the type vocabulary and the user's actor id
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -34,6 +35,7 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `docs/agents/`: does this skill's prior output already exist?
 - `.scratch/`: a sign that a local-markdown issue tracker convention is already in use
 - Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.
+- `git config user.name` / `user.email`, or the GitHub/GitLab login from the remote: the candidate for the user's OKF actor id (`human:<id>`)
 - Monorepo signals: a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. These are present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
 
 ### 2. Present findings and ask
@@ -69,12 +71,14 @@ Offer **multi-context** (a root `CONTEXT-MAP.md` pointing to per-context `CONTEX
 
 **Section D: Plain-language questions.** Always on; write it without asking. This is a Compass-wide pattern, not a per-repo choice: the `probing` skill already carries the **In plain terms** line in its question template, and this section extends the same rule to every other question the agent asks in this repo. Mention it in the summary so the user knows it's there and can edit `docs/agents/plain-language.md` if their stakeholders need a different register.
 
+**Section E: OKF frontmatter.** Always on. Ask exactly one question: confirm the actor id to use for `verified` entries (propose `human:<git login or user.name slug>`). Write `docs/agents/okf.md` from the seed with `{{HUMAN_ID}}` replaced. If exploration found an existing `CONTEXT.md` or `docs/adr/` without frontmatter, offer (don't insist) to stamp them now with the block from `okf.md`; `generated.by` for stamped legacy files is `compass/setup-compass`.
+
 ### 3. Confirm and edit
 
 Show the user a draft of:
 
 - The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
-- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, `docs/agents/plain-language.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
+- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, `docs/agents/plain-language.md`, `docs/agents/okf.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
 
 Let them edit before writing.
 
@@ -110,6 +114,10 @@ The block:
 ### Plain-language questions
 
 Every decision question you ask the user is paired with an **In plain terms** restatement a non-technical stakeholder could answer. See `docs/agents/plain-language.md`.
+
+### OKF frontmatter
+
+Every markdown document you write or update carries OKF v0.2 frontmatter with a `type`. See `docs/agents/okf.md` for the block, the type vocabulary, and the actor id.
 ```
 
 Include the `### Triage labels` sub-block, and write `docs/agents/triage-labels.md`, only when `triage` is installed and Section B ran. When it isn't, both are omitted.
@@ -122,6 +130,9 @@ Then write the docs files using the seed templates in this skill folder as a sta
 - [triage-labels.md](./triage-labels.md): label mapping (only if `triage` is installed)
 - [domain.md](./domain.md): domain doc consumer rules + layout
 - [plain-language.md](./plain-language.md): the plain-language question rule (always written)
+- [okf.md](./okf.md): OKF frontmatter rule, type vocabulary, actor id (always written; replace `{{HUMAN_ID}}`)
+
+Every file written to `docs/agents/` gets the OKF block itself (`type: Agent Config`, `generated: { by: compass/setup-compass, at: <now> }`); the seeds already carry it, keep it when copying.
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 

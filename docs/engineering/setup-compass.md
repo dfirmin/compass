@@ -32,6 +32,7 @@ It writes into the repo you run it in:
 | `domain.md` | `docs/agents/` |
 | `triage-labels.md` | `docs/agents/`, only when the `triage` skill is installed |
 | `plain-language.md` | `docs/agents/`, always |
+| `okf.md` | `docs/agents/`, always; holds the frontmatter block, type vocabulary, and your `human:<id>` |
 | An `## Agent skills` block | whichever of `CLAUDE.md` / `AGENTS.md` already exists |
 
 All of it is committed markdown. There is no user-level or global mode: the config lives in the repo, so every repo gets its own copy.

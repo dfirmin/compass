@@ -7,6 +7,15 @@ sources:
     resource: https://github.com/mattpocock/skills
     title: mattpocock/skills v1.2.3
 ---
+<!-- Target-repo frontmatter: keep the block below (fill `at`) when writing this file into docs/agents/ -->
+```yaml
+---
+type: Agent Config
+title: "Issue tracker: GitLab"
+generated: { by: compass/setup-compass, at: <ISO 8601 UTC> }
+---
+```
+
 # Issue tracker: GitLab
 
 Issues and specs for this repo live as GitLab issues. Use the [`glab`](https://gitlab.com/gitlab-org/cli) CLI for all operations.

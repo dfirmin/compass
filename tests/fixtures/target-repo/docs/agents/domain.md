@@ -1,21 +1,8 @@
 ---
-type: Template
-title: "Domain Docs"
-generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
-sources:
-  - id: upstream
-    resource: https://github.com/mattpocock/skills
-    title: mattpocock/skills v1.2.3
----
-<!-- Target-repo frontmatter: keep the block below (fill `at`) when writing this file into docs/agents/ -->
-```yaml
----
 type: Agent Config
 title: "Domain Docs"
-generated: { by: compass/setup-compass, at: <ISO 8601 UTC> }
+generated: { by: compass/setup-compass, at: 2026-09-10T20:10:00Z }
 ---
-```
-
 # Domain Docs
 
 How the engineering skills should consume this repo's domain documentation when exploring the codebase.

@@ -11,7 +11,7 @@ sources:
     title: mattpocock/skills v1.2.3
 ---
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
+Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace. Start it with OKF frontmatter: `type: Handoff`, `title`, `description` (the one-line goal of the next session), `generated: { by: compass/handoff, at: <ISO 8601 UTC> }`, and `sources` listing the artifacts it references (specs, ADRs, issues) by path or URL.
 
 Include a "suggested skills" section in the document, naming which skills the next agent should call the Skill tool for.
 

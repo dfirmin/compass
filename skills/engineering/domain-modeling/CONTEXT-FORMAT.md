@@ -12,6 +12,12 @@ sources:
 ## Structure
 
 ```md
+---
+type: Glossary
+title: "{Context Name}"
+description: "{one sentence: what this context is}"
+generated: { by: compass/domain-modeling, at: {ISO 8601 UTC} }
+---
 # {Context Name}
 
 {One or two sentence description of what this context is and why it exists.}
@@ -33,6 +39,8 @@ _Avoid_: Client, buyer, account
 
 ## Rules
 
+- **OKF frontmatter is required** (see `docs/agents/okf.md`). Update `generated.at` whenever a term changes. Add `verified: { by: human:<id>, at: ... }` only when the user has confirmed the glossary in the session; drop `verified` again if you change a term afterwards and the user has not re-confirmed.
+
 - **Be opinionated.** When multiple words exist for the same concept, pick the best one and list the others under `_Avoid_`.
 - **Keep definitions tight.** One or two sentences max. Define what it IS, not what it does.
 - **Only include terms specific to this project's context.** General programming concepts (timeouts, error types, utility patterns) don't belong even if the project uses them extensively. Before adding a term, ask: is this a concept unique to this context, or a general programming concept? Only the former belongs.
@@ -45,13 +53,18 @@ _Avoid_: Client, buyer, account
 **Multiple contexts:** A `CONTEXT-MAP.md` at the repo root lists the contexts, where they live, and how they relate to each other:
 
 ```md
+---
+type: Context Map
+title: "Context Map"
+generated: { by: compass/domain-modeling, at: {ISO 8601 UTC} }
+---
 # Context Map
 
 ## Contexts
 
-- [Ordering](./src/ordering/CONTEXT.md): receives and tracks customer orders
-- [Billing](./src/billing/CONTEXT.md): generates invoices and processes payments
-- [Fulfillment](./src/fulfillment/CONTEXT.md): manages warehouse picking and shipping
+- [Ordering](/src/ordering/CONTEXT.md): receives and tracks customer orders
+- [Billing](/src/billing/CONTEXT.md): generates invoices and processes payments
+- [Fulfillment](/src/fulfillment/CONTEXT.md): manages warehouse picking and shipping
 
 ## Relationships
 

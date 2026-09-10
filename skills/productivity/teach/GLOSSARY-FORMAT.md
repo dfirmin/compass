@@ -14,6 +14,11 @@ sources:
 ## Structure
 
 ```md
+---
+type: Glossary
+title: "{Topic} Glossary"
+generated: { by: compass/teach, at: {ISO 8601 UTC} }
+---
 # {Topic} Glossary
 
 {One or two sentence description of the topic this glossary covers.}

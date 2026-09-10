@@ -16,3 +16,4 @@ okf_version: "0.2"
 * [.agents](.agents/)
 * [docs](docs/)
 * [skills](skills/)
+* [tests](tests/)

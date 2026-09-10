@@ -7,6 +7,15 @@ sources:
     resource: https://github.com/mattpocock/skills
     title: mattpocock/skills v1.2.3
 ---
+<!-- Target-repo frontmatter: keep the block below (fill `at`) when writing this file into docs/agents/ -->
+```yaml
+---
+type: Agent Config
+title: "Issue tracker: Local Markdown"
+generated: { by: compass/setup-compass, at: <ISO 8601 UTC> }
+---
+```
+
 # Issue tracker: Local Markdown
 
 Issues and specs for this repo live as markdown files in `.scratch/`.
@@ -18,6 +27,7 @@ Issues and specs for this repo live as markdown files in `.scratch/`.
 - Implementation issues are one file per ticket at `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`, never a single combined tickets file
 - Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
 - Comments and conversation history append to the bottom of the file under a `## Comments` heading
+- Every file carries OKF frontmatter (`docs/agents/okf.md`): `type: Spec` for `spec.md`, `type: Issue` for tickets, `type: Scout Map` for a scout map, with `title` and `generated: { by: compass/<skill>, at: ... }`. The `Status:` / `Type:` / `Blocked by:` body lines stay as they are; they are the tracker's state, not OKF's
 
 ## When a skill says "publish to the issue tracker"
 
