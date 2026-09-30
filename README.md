@@ -1,10 +1,4 @@
----
-type: Reference
-title: "Compass README"
-description: "Agent skills for Claude Code, Codex, and Cursor; install and orientation."
-generated: { by: compass-port/0.1.0, at: 2026-09-10T19:44:27Z }
----
-# Compass
+<h1 align="center"><img src="assets/compass.svg" alt="Compass: a needle settles on north, then a route runs from /probe-with-docs through /to-spec, /to-tickets and /implement to /code-review, ending in shipped." width="100%"></h1>
 
 Agent skills for Claude Code, Codex, and Cursor that take work from an idea to shipped code: a probing interview to sharpen the idea, a spec, tickets, test-driven implementation, and a two-axis code review, with the decisions recorded as docs an agent can reuse. Compass is adapted from an MIT-licensed upstream skills repository (see [NOTICE.md](NOTICE.md) and `LICENSE`): the same small, composable, model-agnostic skills, with the additions below.
 

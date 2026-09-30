@@ -76,7 +76,7 @@ def stamp():
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     n = 0
     for p in walk():
-        if os.path.basename(p) in RESERVED: continue
+        if os.path.basename(p) in RESERVED or rel(p) == "README.md": continue
         text = open(p, encoding="utf-8").read()
         fm, body = split(text)
         t = type_for(p)
@@ -127,7 +127,7 @@ def index():
                     subdirs.append((name, f"{name}/"))
             elif name.endswith(".md") and name not in RESERVED:
                 fm, _ = split(open(full, encoding="utf-8").read())
-                t = fm_get(fm or "", "title") or os.path.splitext(name)[0]
+                t = fm_get(fm or "", "title") or ("Compass README" if (d, name) == ("", "README.md") else os.path.splitext(name)[0])
                 entries.append((t.strip('"'), name, desc_of(full)))
         out = []
         if d == "": out.append('---\nokf_version: "0.2"\n---\n')
@@ -146,6 +146,7 @@ def check():
     errors = []
     for p in walk():
         r = rel(p); base = os.path.basename(p)
+        if r == "README.md": continue  # root README renders on GitHub; no frontmatter table above the banner
         text = open(p, encoding="utf-8").read()
         fm, body = split(text)
         if base == "index.md":
