@@ -38,6 +38,7 @@ Once you think in these two loads, most authoring decisions (split or don't, inl
 - **Completion criteria**: the clarity and demand of each step's done-condition, and the **legwork** that demand drives; the defence against **premature completion**.
 - **Leading words**: a compact concept already in the model's pretraining (*tight*, *red*, *tracer bullet*) that the agent thinks with while running the document. It anchors twice: execution in the body, invocation in the pointer.
 - **Pruning**: single source of truth, relevance, and the no-op test applied sentence by sentence, against **duplication**, **sediment** and **sprawl**.
+- **Calibrating to the model**: how much direction a document carries depends on the model reading it. Set freedom per step (goal, template, or script), prefer a principle to an example, retire scaffolding written for older models, test on each tier you target, and verify at the end.
 
 ## Common questions
 
@@ -60,7 +61,7 @@ When it works, and you can no longer find duplication, sediment or no-ops. There
 Ask which load you want to pay. `CLAUDE.md` loads into every [session](https://www.aihero.dev/ai-coding-dictionary/session) unconditionally; material behind a pointer costs only the pointer's own line until it fires. Anything that applies in one context out of ten is paying context load the nine other times.
 
 **Do I need to rewrite my documents for each new model?**
-Mostly no, and over-fitting to one model is its own trap. Updating for a new model is usually another no-op pass rather than a rewrite.
+Mostly no, and over-fitting to one model is its own trap. Updating for a new model is usually another no-op pass rather than a rewrite. The exception is scaffolding added for older models (emphasis, repeated rules, examples that pin the agent to one shape): newer models can do worse with it, so strip it and test on each tier you target.
 
 **My skill only works on the exact task I built it from.**
 The common route (do the work once, then have the agent write it up as a skill) over-indexes on that one run, and the exemplars come out too specific. Keep the run as evidence, then abstract deliberately: strip what belonged to that repo and those files, and write for the class of task.
