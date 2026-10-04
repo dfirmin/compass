@@ -29,3 +29,10 @@ The invocation cut of splitting (the sequence cut lives in `SKILL.md`): split of
 ## Router skills
 
 When user-invoked skills multiply past what you can remember, that piled-up cognitive load is cured by a **router skill**: one user-invoked skill that names the others and when to reach for each, so the human has one skill to remember instead of many. It can only hint, never fire them: user-invoked skills have no description, so nothing but the human can reach them.
+
+## File layout
+
+- **Keep the `SKILL.md` body under about 500 lines.** Past that, split sections into sibling files and let `SKILL.md` act as the table of contents.
+- **Link every reference file directly from `SKILL.md`.** A file reached only through another file is the one an agent reads partially, so keep reference one level deep.
+- **Open any reference file over 100 lines with a contents list** that mirrors its headings. Agents often preview the first lines to decide whether to read on, and anything below the preview can be missed.
+- **Put the install or setup line beside every script or dependency.** A skill that works only on the machine where it was written has assumed an environment; name the package and let the agent skip the step when it is already present.

@@ -79,6 +79,17 @@ You win twice: fewer tokens, and a sharper hook for the agent to hang its thinki
 
 **Negation** is the failure mode beside this lever: steering by prohibition drags the forbidden behaviour into context and makes it _more_ available, not less. _Don't think of an elephant_, and the elephant is all there is; the negation is a weak modifier the strongly-activated concept overruns, so the ban half-reads as an instruction to do the thing. Prompt the **positive**: state the target behaviour ("write one-line comments") so the banned one is never spoken. A prohibition earns its place only as a hard guardrail you cannot phrase positively; even then, pair it with the positive target so attention lands on what to do.
 
+## Calibrating to the model
+
+A skill is a prompt, and the right amount of direction depends on the model reading it. Older and smaller models needed rigid steps, repeated reminders and emphasis to avoid skipping work. Frontier models infer from surrounding context, and over-directing them costs quality: they follow instructions that do not fit the situation, and examples narrow what they explore. Write for the frontier by default; add structure back only where a weaker model measurably needs it.
+
+- **Set freedom per step, not per skill.** High freedom (a goal and its criteria, no fixed procedure) where many approaches work and a miss is cheap. Medium freedom (a template with parameters) for repeatable shapes. Low freedom (a literal script) for fragile or irreversible steps: a script behaves the same on every model and costs no context.
+- **Prefer a principle to an example.** An example pins the agent to its shape. Keep one only when the format is the point (a template the output must match), and say what varies.
+- **Retire older-model scaffolding.** Capitalised emphasis, restated rules, exhortations to be thorough, and narration of what the model already does are no-ops on frontier models (see Pruning). Cut them, run the skill, and confirm nothing regressed.
+- **Test per tier.** Run a skill on each model it targets. If a smaller model skips a step, sharpen the step or make it a script. If a frontier model does worse with the skill than without it, cut instructions. A skill built for one tier says so in its description.
+- **Verify at the end.** For ordered, multi-step work, close with a check against an explicit standard, and send the agent back to the failing step instead of marking it done.
+- **Keep model figures out of skills.** Context sizes and token budgets change with every model. State the principle ("fits in one fresh context window") and, if a number is unavoidable, keep it in one place.
+
 ## Pruning
 
 - Keep each meaning in a **single source of truth**: one authoritative place, so changing the behaviour is a one-place edit. **Duplication** (the same meaning in more than one place) costs maintenance and tokens, and inflates a meaning's prominence on the ladder past its real rank. (The accidental inverse of a leading word, which repeats a token on purpose, never the meaning.)

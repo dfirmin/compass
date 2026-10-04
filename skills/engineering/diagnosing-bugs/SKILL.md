@@ -25,20 +25,11 @@ If the redacted output is not enough to diagnose the bug, say so and ask the use
 
 **This is the skill.** Everything else is mechanical. If you have a **tight** pass/fail signal for the bug (one that goes red on _this_ bug), you will find the cause; bisection, hypothesis-testing, and instrumentation all just consume it. If you don't have one, no amount of staring at code will save you.
 
-Spend disproportionate effort here. **Be aggressive. Be creative. Refuse to give up.**
+Spend disproportionate effort here, and treat a loop that is slow, flaky or vague as unfinished.
 
-### Ways to construct one, in roughly this order
+### Ways to construct one
 
-1. **Failing test** at whatever seam reaches the bug: unit, integration, e2e.
-2. **Curl / HTTP script** against a running dev server.
-3. **CLI invocation** with a fixture input, diffing stdout against a known-good snapshot.
-4. **Headless browser script** (Playwright / Puppeteer) that drives the UI and asserts on DOM/console/network.
-5. **Replay a captured trace.** Save a real network request / payload / event log to disk; replay it through the code path in isolation.
-6. **Throwaway harness.** Spin up a minimal subset of the system (one service, mocked deps) that exercises the bug code path with a single function call.
-7. **Property / fuzz loop.** If the bug is "sometimes wrong output", run 1000 random inputs and look for the failure mode.
-8. **Bisection harness.** If the bug appeared between two known states (commit, dataset, version), automate "boot at state X, check, repeat" so you can `git bisect run` it.
-9. **Differential loop.** Run the same input through old-version vs new-version (or two configs) and diff outputs.
-10. **HITL bash script.** Last resort. If a human must click, drive _them_ with `scripts/hitl-loop.template.sh` so the loop is still structured. Captured output feeds back to you.
+Reach for the cheapest signal that exercises the bug's real code path: a failing test at the seam that reaches it, a curl or CLI invocation against a fixture input, a headless browser script for UI bugs, a replayed capture of a real request or event log, a throwaway harness around a minimal slice of the system, a property or fuzz loop for "sometimes wrong output", a bisection harness (`git bisect run`) when the bug appeared between two known states, or a differential run of old against new. Use `scripts/hitl-loop.template.sh` only as a last resort, when a human must click: it keeps the loop structured and feeds captured output back to you.
 
 Build the right feedback loop, and the bug is 90% fixed.
 

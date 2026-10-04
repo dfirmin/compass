@@ -34,6 +34,7 @@ Every `SKILL.md` is either user-invoked (`disable-model-invocation: true` plus `
 
 - **Plain-language questions.** Every decision question a skill puts to the user carries an **In plain terms** restatement a non-technical stakeholder could answer. The `probing` template carries the line; `setup-compass` writes the rule into each target repo's `AGENTS.md`/`CLAUDE.md` via `docs/agents/plain-language.md`. A new skill that asks questions follows it.
 - **No per-platform skills.** Don't add `etl-databricks`, `web-typescript`, or similar. Skills generalize; repo-specific facts (platform, dialect, deployment target, standards to pull in) live in the target repo's `docs/agents/*.md` written by `setup-compass`.
+- **Write for frontier models.** Skills favour goals and criteria over rigid procedure, carry no emphasis scaffolding, use examples only where the format is the point, and hold no hardcoded context sizes. [`writing-for-agents`](skills/productivity/writing-for-agents/SKILL.md) carries the rules; read it before adding or editing a skill.
 - **Diagrams as a required artifact** alongside `CONTEXT.md`, `AGENTS.md`, and ADRs: not yet implemented; see `.agents/roadmap.md`.
 - **Company-skill integration** (API, Engineering Security, AWS standards): not yet implemented; see `.agents/roadmap.md`.
 
